@@ -60,3 +60,8 @@ new_plist=''.join(plist[1:3])
 new_plist=new_plist+''.join([plist[5],plist[4],plist[7],plist[6]])
 print(new_plist)
 
+#字典
+dict={'a': 1, 'b': '可以啊', '姓名': '练习册', '可以': 33}
+#遍历字典
+for k in dict:
+    print(k,dict[k])
