@@ -1,9 +1,10 @@
 import datetime
-import sys
 import os
+import sys
 import time
 
 # 查看环境变量
+
 print(os.environ)
 print(os.getenv('HOME'))
 
@@ -107,6 +108,7 @@ def zhujie(word: str) -> str:
 
 zhujie("你好啊")
 
-#取两个字符串的交集，返回一个集合类型
-def search(phrase: str, leetter: str) -> set:
+#取两个字符串的交集，返回一个集合类型，设置leetter的默认值为'aeiou'
+def search(phrase: str, leetter: str='aeiou') -> set:
     return set(leetter).intersection(set(phrase))
+
