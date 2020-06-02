@@ -9,7 +9,7 @@ app = Flask(__name__)
 def hello() -> str:
     return 'Hello world from Flask,屌的一批'
 
-@app.route('/kaka')
+@app.route('/kaka')#/后面是指定路径，随意写
 def do_search()->str:
     return str(search('看下情况sdasdfsdaf','sdfsdafsa'))
 
