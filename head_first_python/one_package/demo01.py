@@ -112,3 +112,10 @@ zhujie("你好啊")
 def search(phrase: str, leetter: str='aeiou') -> set:
     return set(leetter).intersection(set(phrase))
 
+#打开文件with的用法
+"""
+用with一句管理上下文  python内置的编码规定，称为上下文管理协议
+with open('文件名') as f:
+    'pass'
+    '运行完自动关闭文件'
+"""
