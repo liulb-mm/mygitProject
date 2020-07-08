@@ -122,19 +122,15 @@ with open('./1.text','w',encoding='utf-8')as fp:
 """
 map函数，map() 会根据提供的函数对指定序列做映射。
 第一个参数 function 以参数序列中的每一个元素调用 function 函数，返回包含每次 function 函数返回值的新列表
-
 def cheng(x):
-	return x**2
-lista=[1,2,3,4,5]
-list_new=map(cheng,lista)
-print(list_new)
-def cheng(x):
-... 	return x**2
-... lista=[1,2,3,4,5]
-... list_new=map(cheng,lista)
-... for i in list_new:
-...     if i >10:
-...         print(i)
+    return x**2
+a=[1,2,3,4,5]
+b=map(cheng,a)
+c=[]
+for i in b:
+    if i>10:
+        c.append(i)
+print(c)
 """
 
 # 14、python中生成随机整数、随机小数、0—1之间小数方法
@@ -256,6 +252,9 @@ for i in a:
     if i%2==1:
         s.append(i)
 print(s)
+a = [1,2,3,4,5,6,7,8,9,10]
+b = [i for i in a if i%2 != 0]
+print(b)
 """
 #
 29、正则re.complie作用
@@ -511,6 +510,11 @@ k=[]
 for i in zip(m,n):
     k.append(i)
 print(k)
+
+m =["a","b","c","d","e"]
+n=[1,2,3,4,5]
+c=[i for i in zip(m,n)]
+print(c)
 """
 #
 # 61、简述同源策略
@@ -952,3 +956,38 @@ while True:
 # string_out(str2)
 
         #continue  # 上面的条件都不满足就跳过，进行下一次循环
+
+# leetcode
+# 1、给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        final_len=[]
+        for i in range(len(s)):
+            data = s[i]
+            for j in range(i+1,len(s)):
+                if s[j] not in data:
+                    data = data+ s[j]
+                else:
+                    break
+            final_len.append(len(data))
+        if final_len ==[]:
+            if s =='':
+                final_len.append(0)
+            else:
+                final_len.append(1)
+        return max(final_len)
+
+# 2、给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
+# 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。
+class Solution:
+    def twoSum(self, nums: list[int], target: int) -> list[int]:
+        if len(nums)<2:
+            return print("无法计算")
+
+        for i in range(len(nums)-1):
+            for j in range(i+1,len(nums)):
+                if nums[i]+nums[j]==target:
+                    return [i,j]
+
+
+
